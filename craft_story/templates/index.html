@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Рецепты Майнкрафта</title>
+    <link rel="stylesheet" href="/craft_story/CSS/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,56 +29,58 @@
             margin: 5px 0; 
             padding: 10px 20px;
             font-size: 16px;
-            width: 20%;
+            width: 120%;
         }
-        nav button {
-            margin: 5px 0; 
-            padding: 10px 20px;
+        div#navigation {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0px;
             font-size: 16px;
         }
-        nav {
+        div {
+            margin-left:100px;
             text-align: center;
-            margin: 10px 0;
         }
         main {
             display: flex; /* Включаем flex для выравнивания */
-            justify-content: center; /* Центрируем по горизонтали */
-            align-items: center; /* Центрируем по вертикали */
-            margin-left: 200px; /* Отступ слева для nav */
             flex-grow: 1; 
             text-align: center;
             padding: 20px;
         }
         footer {
+            color:white;
             text-align: center;
             padding: 10px;
-            background-color: #f2f2f2;
+            background-color: #D25454;
         }
     </style>
 </head>
 <body>
     <header>
-        <h2>Minecraft Anchous</h2>
-        <nav>
-            <a href="about.html"><button>О нас</button></a>
-            <a href="contact.html"><button>Контакты</button></a>
-        </nav>
+        <a href=""><h2>Minecraft Anchous </h2><a>
+        <div id="navigation">
+            <a href="/about">О нас</a>
+            <a href="/contacts">Контакты</a></div>
+            <h1>{% block header %}{% endblock header %}</h1>
+            <div>{% block content%}{% endblock content %}</div>
+        </div>
     </header>
-    <nav id ="kat">
-        <button>Первая категория</button>
-        <button>Вторая категория</button>
-        <button>Третья категория</button>
-        <button>Четвертая категория</button>
-        <button>Пятая категория</button>
-        <button>Шестая категория</button>
-        <button>Сельмая категория</button>
-        <button>Восьмая категория</button>
-        <button>Девятая категория</button>
-    </nav>
     <main>
-        <h1>Добро пожаловать!</h1>
+        <nav id="kat">
+            <button>Первая категория</button>
+            <button>Вторая категория</button>
+            <button>Третья категория</button>
+            <button>Четвертая категория</button>
+            <button>Пятая категория</button>
+            <button>Шестая категория</button>
+            <button>Сельмая категория</button>
+            <button>Восьмая категория</button>
+            <button>Девятая категория</button>
+        </nav>
+        <div>
+            <h1>Добро пожаловать!</h1>
+        </div>
     </main>
-
     <footer>
         <p>“ООО организация Анчоус” любит майнкрафт ❤</p>
         <p>"Minecraft"™ торговый знак Mojang Synergies AB. Мы не имеем отношения к Mojang.</p>
