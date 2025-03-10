@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Контакты|Рецепты Майнкрафта</title>
+    <link rel="stylesheet" href="CSS/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,13 +17,15 @@
             background-color: #D25454;
             color: white;
             padding: 10px;
-            text-align: center;
+            display: flex; /* Используем flexbox */
+            justify-content: space-between; /* Распределяем пространство */
+            align-items: center; /* Центрируем по вертикали */
         }
         nav#kat {
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
-            margin: 10px; 
+            margin-left: 5px; 
         }
         nav#kat button {
             margin: 5px 0; 
@@ -30,18 +33,27 @@
             font-size: 16px;
             width: 120%;
         }
-        div#navigation {
-            color: white;
+        header a { /* Убираем подчеркивание у ссылок в header */
+            margin-left: 25px;
+            margin-right: 25px;
             text-decoration: none;
-            margin: 5px 0px;
+            color: white; /* Ссылка будет белого цвета, чтобы привести её в соответствие с цветом текста */
+        }
+        #navigation {
+            color: white;
+            margin: 45px 0px;
             font-size: 16px;
+            display: flex; /* Используем flexbox для навигации */
+        }
+        #navigation a {
+            margin-left: 15px; /* Добавляем отступ между ссылками */
         }
         div {
             margin-left:100px;
             text-align: center;
         }
         main {
-            display: flex; /* Включаем flex для выравнивания */
+            display: flex;
             flex-grow: 1; 
             text-align: center;
             padding: 20px;
@@ -60,8 +72,6 @@
             <div id="navigation">
             <a href="/about">О нас</a>
             <a href="/contacts">Контакты</a></div>
-            <h1>{% block header %}{% endblock header %}</h1>
-            <div>{% block content%}{% endblock content %}</div>
         </div>
     </header>
     <main>
