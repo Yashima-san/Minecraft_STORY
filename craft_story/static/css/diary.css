@@ -15,17 +15,47 @@ header {
     align-items: center; /* Центрируем по вертикали */
 }
 nav#kat {
+    background-color: white;
+    width: 96%;
+    height: 100%;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
-    margin-left: 5px; 
+    align-items: flex-start;
+    border-radius: 5%;
+}
+.panel{
+    margin-bottom: 50px;
+    margin-left: -110px;
+    width: 25%;
+    height: 100%;
+    background-color: #D59C9C;
+    border-radius: 5%;
 }
 nav#kat button {
-    margin: 5px 0; 
+    background-color: #D59C9C; /* Начальный цвет кнопки */
+    margin-top: 5px;
+    margin: 5px 0px; 
+    margin-left: 60px;
     padding: 10px 20px;
     font-size: 16px;
-    width: 120%;
+    width: 75%;
+    border: none; /* Убираем границу, если она есть */
+    color: white; /* Цвет текста кнопки */
+    cursor: pointer; /* Курсор как указатель */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+    
 }
+/* Цвет кнопки при наведении */
+nav#kat button:hover {
+    background-color: #A23434; /* Цвет при наведении */
+}
+
+/* Цвет кнопки при нажатии */
+nav#kat button:active {
+    background-color: #D9D9D9; /* Цвет при нажатии */
+}
+
 header a { /* Убираем подчеркивание у ссылок в header */
     margin-left: 25px;
     margin-right: 25px;
@@ -42,8 +72,11 @@ header a { /* Убираем подчеркивание у ссылок в heade
     margin-left: 15px; /* Добавляем отступ между ссылками */
 }
 div {
-    margin-left:100px;
+    margin-left:-60px;
     text-align: center;
+}
+.main{
+    margin-left: 100px;
 }
 main {
     display: flex;
