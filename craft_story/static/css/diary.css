@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-family: 'Minecraftia', arial;
+    font-family: 'PIXY Regular';
 }
 header {
     background-color: #D25454;
@@ -33,7 +33,7 @@ nav#kat {
     position: absolute;
     padding-top: 10px;
     padding-bottom: 25px;
-    top: 127px;
+    top: 131px;
     left: -50px;
     width: 26%;
     max-height: 69%;
@@ -72,7 +72,7 @@ header a { /* Убираем подчеркивание у ссылок в heade
 #navigation {
     color: white;
     margin: 45px 0px;
-    font-size: 16px;
+    font-size: 18px;
     display: flex; /* Используем flexbox для навигации */
 }
 #navigation a {
