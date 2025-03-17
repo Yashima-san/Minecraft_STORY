@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Контакты|Рецепты Майнкрафта</title>
+    <link href="https://myfonts.ru/myfonts?fonts=minecraftia" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/diary.css' %}">
 </head>
 <body>
@@ -18,15 +19,15 @@
     <main>
         <div class="panel">
             <nav id="kat">
-                <button>Первая категория</button>
-                <button>Вторая категория</button>
-                <button>Третья категория</button>
-                <button>Четвертая категория</button>
-                <button>Пятая категория</button>
-                <button>Шестая категория</button>
-                <button>Сельмая категория</button>
-                <button>Восьмая категория</button>
-                <button>Девятая категория</button>
+                <button>Инструменты</button>
+                <button>Оружие</button>
+                <button>Броня</button>
+                <button>Еда и зелья</button>
+                <button>Строительные блоки</button>
+                <button>Механизмы и транспорт</button>
+                <button>Декоративные блоки</button>
+                <button>Предметы для фермерства</button>
+                <button>Редкие предметы</button>
             </nav>
         </div>
         <div class="contact-container">
@@ -46,8 +47,13 @@
         </div>
     </main>
     <footer>
-        <p>“ООО организация Анчоус” любит майнкрафт ❤</p>
-        <p>"Minecraft"™ торговый знак Mojang Synergies AB. Мы не имеем отношения к Mojang.</p>
+        <hr style="border-top: 15px solid #D59C9C;">  <!-- Толстая линия -->
+        <img id="funny" src="{% static 'img/3.jpg' %}">
+        <div class="footer">
+            <p>“ООО организация Анчоус” любит майнкрафт ❤</p>
+            <p>"Minecraft"™ торговый знак Mojang Synergies AB. Мы не имеем отношения к Mojang.</p>
+        </div>
     </footer>
+    
 </body>
 </html>
