@@ -127,7 +127,7 @@ main {
     width: 100%;
     height: auto;
     max-height: 330px;
-    object-fit: cover;
+    object-fit: fill;
     display: block;
 }
 .contact-container {
@@ -190,14 +190,14 @@ p {
     background-color: rgba(0,0,0,0.7); /* Полупрозрачный фон */
 }
 .modal-content {
-    background-color: grey;
+    background-color: #ffffff; /* Белый цвет фона */
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 50%; 
     text-align: center;
 }
-img {
+.image {
     width: 50px;
     height: 50px;
 }
