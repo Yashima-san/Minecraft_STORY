@@ -18,15 +18,15 @@
     <main>
         <div class="panel">
             <nav id="kat">
-                <button>Инструменты</button>
-                <button>Оружие</button>
-                <button>Броня</button>
-                <button>Еда и зелья</button>
-                <button>Строительные блоки</button>
-                <button>Механизмы и транспорт</button>
-                <button>Декоративные блоки</button>
-                <button>Предметы для фермерства</button>
-                <button>Редкие предметы</button>
+                <button onclick="openModal('toolsModal')">Инструменты</button>
+                <button onclick="openModal('weaponModal')">Оружие</button>
+                <button onclick="openModal('armorModal')">Броня</button>
+                <button onclick="openModal('foodModal')">Еда и зелья</button>
+                <button onclick="openModal('blocksModal')">Строительные блоки</button>
+                <button onclick="openModal('mechanismsModal')">Механизмы и транспорт</button>
+                <button onclick="openModal('decorativeModal')">Декоративные блоки</button>
+                <button onclick="openModal('farmingModal')">Предметы для фермерства</button>
+                <button onclick="openModal('rareModal')">Редкие предметы</button>
             </nav>
         </div>
         <div class="contact-container">
@@ -39,15 +39,58 @@
             </div><br>
             <div class="mine_rice">
             </div>
+        </div>
     </main>
     <footer>
-        <hr style="border-top: 15px solid #D59C9C;">  <!-- Толстая линия -->
+        <hr style="border-top: 15px solid #D59C9C; margin-bottom: -1px;">  <!-- Толстая линия -->
         <img id="funny" src="{% static 'img/3.jpg' %}">
         <div class="footer">
             <p>“ООО организация Анчоус” любит майнкрафт ❤</p>
             <p>"Minecraft"™ торговый знак Mojang Synergies AB. Мы не имеем отношения к Mojang.</p>
         </div>
     </footer>
+
+    <!-- Модальные окна -->
+    <div id="toolsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('toolsModal')">&times;</span>
+            <h2>Крафт Золотого Меча</h2>
+            <p>Для крафта золотого меча вам понадобятся:</p>
+            <ul>
+                <li>2 золотых слитка</li>
+                <li>1 палка</li>
+            </ul>
+            <p><a href="https://minecraft.fandom.com/ru/wiki/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B9_%D0%BC%D0%B5%D1%87" 
+                target="_blank">Ссылка на крафт</a></p>
+        </div>
+    </div>
     
+    <div id="weaponModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('weaponModal')">&times;</span>
+            <img src="{% static 'img/weapon1.jpg' %}" alt="Weapon 1">
+            <img src="{% static 'img/weapon2.jpg' %}" alt="Weapon 2">
+        </div>
+    </div>
+    <!-- Повторите код модальных окон для остальных категорий, изменяя ID и контент -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Закрытие модального окна при клике вне его содержимого
+        window.onclick = function(event) {
+            var modals = document.getElementsByClassName("modal");
+            for (var i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
