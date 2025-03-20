@@ -40,23 +40,148 @@
             <div class="mine_rice">
             </div>
         </div>
-        <!-- Модальные окна -->
-    <div id="toolsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('toolsModal')">&times;</span>
-            <h2>Крафт Золотого Меча</h2>
-            <p>Для крафта золотого меча вам понадобятся:</p>
-            <ul>
-                <li>2 золотых слитка</li>
-                <li>1 палка</li>
-            </ul>
-            <!-- Замените href на src, чтобы изображение отображалось корректно -->
-            <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/1a/Золотой_меч_JE3_BE2.png/revision/latest?cb=20190424165319" 
-            alt="Золотой меч" method="get" action="#">
-            <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a4/Золотой_топор_JE2_BE1.png/revision/latest?cb=20200419171025" 
-            alt="Золотой топор" method="get" action="#">
+
+        <!-- Модальное окно 1 -->
+        <div id="toolsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('toolsModal')">&times;</span>
+                <h2>Крафтинг инструментов</h2> <!-- Заголовок, который всегда отображается -->
+                
+                <div id="recipeDetail" style="display: none;">
+                    <h3 id="recipeTitle"></h3>
+                    <p id="recipeDescription"></p>
+                    <ul id="recipeIngredients"></ul>
+                    <img id="recipeImage" class="image" style="width: 180px; height: 180px;"/>
+                </div>
+                
+                <!-- Изображения для крафта -->
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/37/Деревянный_топор_JE1_BE1.png/revision/latest?cb=20171022104317" 
+                alt="Деревянный топор" onclick="showRecipe('Деревянный топор', 'Для крафта деревянного топора вам понадобятся:', ['3 блока любых досок', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/37/Деревянный_топор_JE1_BE1.png/revision/latest?cb=20171022104317')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/14/Деревянная_кирка_JE1_BE1.png/revision/latest?cb=20180822081933" 
+                alt="Деревянная кирка" onclick="showRecipe('Деревянная кирка', 'Для крафта деревянной кирки вам понадобятся:', ['3 блока любых досок', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/14/Деревянная_кирка_JE1_BE1.png/revision/latest?cb=20180822081933')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/0/0e/Деревянная_лопата_JE1_BE1.png/revision/latest?cb=20180823060609" 
+                alt="Деревянная лопата" onclick="showRecipe('Деревянная лопата', 'Для крафта деревянной лопаты вам понадобятся:', ['1 блок любых досок', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/0/0e/Деревянная_лопата_JE1_BE1.png/revision/latest?cb=20180823060609')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/38/Деревянная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144259" 
+                alt="Деревянная мотыга" onclick="showRecipe('Деревянная мотыга', 'Для крафта деревянной мотыги вам понадобятся:', ['2 блока любых досок', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/38/Деревянная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144259')">
+
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/e/ec/Каменный_топор_JE1_BE1.png/revision/latest?cb=20171022104432" 
+                alt="Каменный топор" onclick="showRecipe('Каменный топор', 'Для крафта каменного топора вам понадобятся:', ['3 блока булыжника', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/e/ec/Каменный_топор_JE1_BE1.png/revision/latest?cb=20171022104432')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3b/Каменная_кирка_JE1_BE1.png/revision/latest?cb=20180822081957" 
+                alt="Каменная кирка" onclick="showRecipe('Каменная кирка', 'Для крафта каменной кирки вам понадобятся:', ['3 блока булыжника, '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3b/Каменная_кирка_JE1_BE1.png/revision/latest?cb=20180822081957')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/8/8f/Каменная_лопата_JE1_BE1.png/revision/latest?cb=20180823060651" 
+                alt="Каменная лопата" onclick="showRecipe('Каменная лопата', 'Для крафта каменной лопаты вам понадобятся:', ['1 блок булыжника', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/8/8f/Каменная_лопата_JE1_BE1.png/revision/latest?cb=20180823060651')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/7/79/Каменная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144324" 
+                alt="Каменная мотыга" onclick="showRecipe('Каменная мотыга', 'Для крафта каменной мотыги вам понадобятся:', ['2 блока булыжника', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/7/79/Каменная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144324')">
+
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/2/20/Железный_топор_JE4_BE1.png/revision/latest?cb=20171022104535" 
+                alt="Железный топор" onclick="showRecipe('Железный топор', 'Для крафта желеного топора вам понадобятся:', ['3 железных слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/2/20/Железный_топор_JE4_BE1.png/revision/latest?cb=20171022104535')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/39/Железная_кирка_JE2_BE1.png/revision/latest?cb=20180822082023" 
+                alt="Железная кирка" onclick="showRecipe('Железная кирка', 'Для крафта железной кирки вам понадобятся:', ['3 железных слитка, '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/39/Железная_кирка_JE2_BE1.png/revision/latest?cb=20180822082023')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a0/Железная_лопата_JE2_BE1.png/revision/latest?cb=20180823060721" 
+                alt="Железная лопата" onclick="showRecipe('Железная лопата', 'Для крафта железной лопаты вам понадобятся:', ['1 железный слиток', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a0/Железная_лопата_JE2_BE1.png/revision/latest?cb=20180823060721')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/5a/Железная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144345" 
+                alt="Железная мотыга" onclick="showRecipe('Железная мотыга', 'Для крафта железной мотыги вам понадобятся:', ['2 железных слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/5a/Железная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144345')">
+
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a4/Золотой_топор_JE2_BE1.png/revision/latest?cb=20200419171025" 
+                alt="Золотой топор" onclick="showRecipe('Золотой топор', 'Для крафта золотого топора вам понадобятся:', ['3 золотых слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a4/Золотой_топор_JE2_BE1.png')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/fe/Золотая_кирка_JE2_BE1.png/revision/latest?cb=20200419170911" 
+                alt="Золотая кирка" onclick="showRecipe('Золотая кирка', 'Для крафта золотой кирки вам понадобятся:', ['3 золотых слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/fe/Золотая_кирка_JE2_BE1.png')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/15/Золотая_лопата_JE2_BE1.png/revision/latest?cb=20200419171129" 
+                alt="Золотая лопата" onclick="showRecipe('Золотая лопата', 'Для крафта золотой лопаты вам понадобятся:', ['1 золотой слиток', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/15/Золотая_лопата_JE2_BE1.png')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/c/ce/Золотая_мотыга_JE1_BE1.png/revision/latest?cb=20180820144407" 
+                alt="Золотая мотыга" onclick="showRecipe('Золотая мотыга', 'Для крафта золотой мотыги вам понадобятся:', ['2 золотых слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/c/ce/Золотая_мотыга_JE1_BE1.png')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3e/Алмазный_топор_JE1_BE1.png/revision/latest?cb=20171022104657" 
+                alt="Алмазный топор" onclick="showRecipe('Алмазный топор', 'Для крафта алмазного топора вам понадобятся:', ['3 алмаза', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3e/Алмазный_топор_JE1_BE1.png/revision/latest?cb=20171022104657')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/39/Алмазная_кирка_JE1_BE1.png/revision/latest?cb=20180822082107" 
+                alt="Алмазная кирка" onclick="showRecipe('Алмазная кирка', 'Для крафта алмазной кирки вам понадобятся:', ['3 алмаза, '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/39/Алмазная_кирка_JE1_BE1.png/revision/latest?cb=20180822082107')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/5d/Алмазная_лопата_JE1_BE1.png/revision/latest?cb=20180823061001" 
+                alt="Алмазная лопата" onclick="showRecipe('Алмазная лопата', 'Для крафта алмазной лопаты вам понадобятся:', ['1 алмаз', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/5d/Алмазная_лопата_JE1_BE1.png/revision/latest?cb=20180823061001')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/0/04/Алмазная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144433" 
+                alt="Алмазная мотыга" onclick="showRecipe('Алмазная мотыга', 'Для крафта алмазной мотыги вам понадобятся:', ['2 алмаза', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/0/04/Алмазная_мотыга_JE1_BE1.png/revision/latest?cb=20180820144433')">
+                
+                <img class="image" src="https://minecraft.wiki/images/Netherite_Axe_JE1.png?1b5a5" 
+                alt="Незеритовый топор" onclick="showRecipe('Незеритовый топор', 'Для крафта незеритового топора вам понадобятся:', ['1 алмазный топор', '1 незеритовый слиток'], 'https://minecraft.wiki/images/Netherite_Axe_JE1.png?1b5a5')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/6/6c/Незеритовая_кирка.png/revision/latest?cb=20200207143740" 
+                alt="Незеритовая кирка" onclick="showRecipe('Незеритовая кирка', 'Для крафта незеритовой кирки вам понадобятся:', ['1 алмазная кирка, '1 незеритовый слиток'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/6/6c/Незеритовая_кирка.png/revision/latest?cb=20200207143740')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/d/d7/Незеритовая_лопата.png/revision/latest?cb=20200819114258" 
+                alt="Незеритовая лопата" onclick="showRecipe('Незеритовая лопата', 'Для крафта незеритовой лопаты вам понадобятся:', ['1 алмазная лопата', '1 незеритовый слиток'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/d/d7/Незеритовая_лопата.png/revision/latest?cb=20200819114258')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/8/8b/Незеритовая_мотыга.png/revision/latest?cb=20200819115148"
+                alt="Незеритовая мотыга" onclick="showRecipe('Незеритовая мотыга', 'Для крафта незеритовой мотыги вам понадобятся:', ['1 алмазная мотыга', '1 незеритовый слиток'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/8/8b/Незеритовая_мотыга.png/revision/latest?cb=20200819115148')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3a/Компас.png/revision/latest?cb=20200805153132" 
+                alt="Компас" onclick="showRecipe('Компас', 'Для крафта компаса вам понадобятся:', ['4 железных слитка', '1 редстоуновая пыль'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3a/Компас.png/revision/latest?cb=20200805153132')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/d/d2/Возвратный_компас_JE1_BE1.gif/revision/latest?cb=20220409230417" 
+                alt="Возвратный компас" onclick="showRecipe('Возвратный компас', 'Для крафта возвратного компаса вам понадобятся:', ['8 осколков эха', '1 компас'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/d/d2/Возвратный_компас_JE1_BE1.gif/revision/latest?cb=20220409230417')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/9/93/Часы.png/revision/latest?cb=20180818170823" 
+                alt="Часы" onclick="showRecipe('Часы', 'Для крафта часов вам понадобятся:', ['4 золотых слитка', '1 редстоуновая пыль'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/9/93/Часы.png/revision/latest?cb=20180818170823')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/5b/Ножницы_%28до_Texture_Update%29.png/revision/latest?cb=20180824072516" 
+                alt="Ножницы" onclick="showRecipe('Ножницы', 'Для крафта ножниц вам понадобятся:', ['2 слитка железа'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/5b/Ножницы_%28до_Texture_Update%29.png/revision/latest?cb=20180824072516')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/1c/Огниво_JE3_BE1.png/revision/latest?cb=20180822135641" 
+                alt="Огниво" onclick="showRecipe('Огниво', 'Для крафта огнива вам понадобятся:', ['1 слиток железа', '1 кремень'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/1c/Огниво_JE3_BE1.png/revision/latest?cb=20180822135641')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/50/Удочка_JE1_BE1.png/revision/latest?cb=20180822135440" 
+                alt="Удочка" onclick="showRecipe('Удочка', 'Для крафта удочки вам понадобятся:', ['3 палки', '2 нити'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/5/50/Удочка_JE1_BE1.png/revision/latest?cb=20180822135440')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/f1/Поводок_%28до_Texture_Update%29.png/revision/latest?cb=20180823064443" 
+                alt="Поводок" onclick="showRecipe('Поводок', 'Для крафта поводка вам понадобятся:', ['4 нитки', '1 сгусток слизи'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/f1/Поводок_%28до_Texture_Update%29.png/revision/latest?cb=20180823064443')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/2/20/Подзорная_труба_%28предмет%29_JE3_BE1.png/revision/latest?cb=20210819095650" 
+                alt="Подзорная труба" onclick="showRecipe('Подзорная труба', 'Для крафта подзорной трубы вам понадобятся:', ['2 медных слитка', '1 осколок аметиста'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/2/20/Подзорная_труба_%28предмет%29_JE3_BE1.png/revision/latest?cb=20210819095650')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/b/b4/Мешок_JE2.png/revision/latest?cb=20201112044005" 
+                alt="Мешок" onclick="showRecipe('Мешок', 'Для крафта мешка вам понадобятся:', ['6 кроличья шкурка', '2 нити'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/b/b4/Мешок_JE2.png/revision/latest?cb=20201112044005')">
         </div>
     </div>
+        <!-- Модальное окно 2 -->
+        <div id="weaponModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('weaponModal')">&times;</span>
+                <h2>Крафтинг оружия</h2>
+                <div id="recipeDetailWeapon" style="display: none;">
+                    <h3 id="recipeTitleWeapon"></h3>
+                    <p id="recipeDescriptionWeapon"></p>
+                    <ul id="recipeIngredientsWeapon"></ul>
+                    <img id="recipeImageWeapon" class="image" style="width: 180px; height: 180px;"/>
+                </div>
+                <!-- Изображения для крафта -->
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/fa/Деревянный_меч_JE1_BE1.png/revision/latest?cb=20151120115425" 
+                alt="Деревянный меч" onclick="showRecipeWeapon('Деревянный меч', 'Для крафта деревянного меча вам понадобятся:', ['2 блока любых досок', '1 палка'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/fa/Деревянный_меч_JE1_BE1.png/revision/latest?cb=20151120115425')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/37/Деревянный_топор_JE1_BE1.png/revision/latest?cb=20171022104317" 
+                alt="Деревянный топор" onclick="showRecipeWeapon('Деревянный топор', 'Для крафта деревянного топора вам понадобятся:', ['3 блока любых досок', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/37/Деревянный_топор_JE1_BE1.png/revision/latest?cb=20171022104317')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/6/64/Каменный_меч_JE1_BE1.png/revision/latest?cb=20151120115418" 
+                alt="Каменный меч" onclick="showRecipeWeapon('Каменный меч', 'Для крафта каменного меча вам понадобятся:', ['2 блока булыжника', '1 палка'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/6/64/Каменный_меч_JE1_BE1.png/revision/latest?cb=20151120115418')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/e/ec/Каменный_топор_JE1_BE1.png/revision/latest?cb=20171022104432" 
+                alt="Каменный топор" onclick="showRecipeWeapon('Каменный топор', 'Для крафта каменного топора вам понадобятся:', ['3 блока булыжника', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/e/ec/Каменный_топор_JE1_BE1.png/revision/latest?cb=20171022104432')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/f6/Железный_меч_JE2_BE2.png/revision/latest?cb=20190424165312" 
+                alt="Железный меч" onclick="showRecipeWeapon('Железный меч', 'Для крафта железного меча вам понадобятся:', ['2 железных слитка', '1 палка'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/f6/Железный_меч_JE2_BE2.png/revision/latest?cb=20190424165312')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/2/20/Железный_топор_JE4_BE1.png/revision/latest?cb=20171022104535" 
+                alt="Железный топор" onclick="showRecipeWeapon('Железный топор', 'Для крафта желеного топора вам понадобятся:', ['3 железных слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/2/20/Железный_топор_JE4_BE1.png/revision/latest?cb=20171022104535')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/1a/Золотой_меч_JE3_BE2.png/revision/latest?cb=20190424165319" 
+                alt="Золотой меч" onclick="showRecipeWeapon('Золотой меч', 'Для крафта золотого меча вам понадобятся:', ['2 золотых слитка', '1 палка'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/1/1a/Золотой_меч_JE3_BE2.png')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a4/Золотой_топор_JE2_BE1.png/revision/latest?cb=20200419171025" 
+                alt="Золотой топор" onclick="showRecipeWeapon('Золотой топор', 'Для крафта золотого топора вам понадобятся:', ['3 золотых слитка', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/a/a4/Золотой_топор_JE2_BE1.png')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/f6/Алмазный_меч_JE2_BE2.png/revision/latest?cb=20190424165325" 
+                alt="Алмазный меч" onclick="showRecipeWeapon('Алмазный меч', 'Для крафта алмазного меча вам понадобятся:', ['2 алмаза', '1 палка'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/f/f6/Алмазный_меч_JE2_BE2.png/revision/latest?cb=20190424165325')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3e/Алмазный_топор_JE1_BE1.png/revision/latest?cb=20171022104657" 
+                alt="Алмазный топор" onclick="showRecipeWeapon('Алмазный топор', 'Для крафта алмазного топора вам понадобятся:', ['3 алмаза', '2 палки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/3/3e/Алмазный_топор_JE1_BE1.png/revision/latest?cb=20171022104657')">
+                
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/9/94/Незеритовый_меч.png/revision/latest?cb=20200207141712" 
+                alt="Незеритовый меч" onclick="showRecipeWeapon('Незеритовый меч', 'Для крафта незеритового меча вам понадобятся:', ['1 алмазный меч', '1 незеритовый слиток'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/9/94/Незеритовый_меч.png/revision/latest?cb=20200207141712')">
+                <img class="image" src="https://minecraft.wiki/images/Netherite_Axe_JE1.png?1b5a5" 
+                alt="Незеритовый топор" onclick="showRecipeWeapon('Незеритовый топор', 'Для крафта незеритового топора вам понадобятся:', ['1 алмазный топор', '1 незеритовый слиток'], 'https://minecraft.wiki/images/Netherite_Axe_JE1.png?1b5a5')">
+
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/d/dc/Анимация_лука.gif/revision/latest?cb=20180818164934" 
+                alt="Лук" onclick="showRecipeWeapon('Лук', 'Для крафта лука вам понадобятся:', ['3 палки', '3 нитки'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/d/dc/Анимация_лука.gif/revision/latest?cb=20180818164934')">
+                <img class="image" src="https://ru.minecraft.wiki/images/Арбалет_%28натяжение_3%29.png?74bbf" 
+                alt="Арбалет" onclick="showRecipeWeapon('Арбалет', 'Для крафта арбалета вам понадобятся:', ['3 палки', '2 нитки', '1 железный слиток', '1 крюк'], 'https://ru.minecraft.wiki/images/Арбалет_%28натяжение_3%29.png?74bbf')">
+                <img class="image" src="https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/6/61/Стрела_%28предмет%29_JE1_BE1.png/revision/latest?cb=20180801085754" 
+                alt="Стрела" onclick="showRecipeWeapon('Стрела', 'Для крафта стрел вам понадобятся:', ['1 кремень', '1 палка', '1 перо'], 'https://static.wikia.nocookie.net/minecraft_ru_gamepedia/images/6/61/Стрела_%28предмет%29_JE1_BE1.png/revision/latest?cb=20180801085754')">
+                <img class="image" src="" 
+                alt="Алмазный топор" onclick="showRecipeWeapon('Алмазный топор', 'Для крафта алмазного топора вам понадобятся:', ['3 алмаза', '2 палки'], '')">
+                
+            </div>
+        </div>
     </main>
     <footer>
         <hr style="border-top: 15px solid #D59C9C; margin-bottom: -1px;">  <!-- Толстая линия -->
@@ -70,14 +195,38 @@
     
     <!-- Повторите код модальных окон для остальных категорий, изменяя ID и контент -->
     <script>
+        function showRecipe(title, description, ingredients, imageUrl) {
+            const recipeDetail = document.getElementById('recipeDetail');
+            const recipeTitleElem = document.getElementById('recipeTitle');
+            const recipeImageElem = document.getElementById('recipeImage');
+            if (recipeDetail.style.display === 'block' && recipeTitleElem.innerText === title) {
+                // Если уже открыто текущее изображение, скрываем детали
+                recipeDetail.style.display = 'none';
+            } else {
+                // Обновляем текст и изображения в контейнере подробной информации
+                recipeTitleElem.innerText = title;
+                document.getElementById('recipeDescription').innerText = description;
+                // Обновляем список ингредиентов
+                const ingredientsList = document.getElementById('recipeIngredients');
+                ingredientsList.innerHTML = ''; // Очищаем предыдущее содержимое
+                ingredients.forEach(function(ingredient) {
+                    var li = document.createElement('li');
+                    li.innerText = ingredient;
+                    ingredientsList.appendChild(li);
+                });
+                // Обновляем изображение
+                recipeImageElem.src = imageUrl;
+                // Показать контейнер с подробной информацией
+                recipeDetail.style.display = 'block';
+            }
+        }        
+
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
-
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
         }
-
         // Закрытие модального окна при клике вне его содержимого
         window.onclick = function(event) {
             var modals = document.getElementsByClassName("modal");
@@ -87,6 +236,31 @@
                 }
             }
         }
+        
+    // Новая функция для weaponModal
+    function showRecipeWeapon(title, description, ingredients, imageUrl) {
+        const recipeDetail = document.getElementById('recipeDetailWeapon');
+        const recipeTitleElem = document.getElementById('recipeTitleWeapon');
+        const recipeImageElem = document.getElementById('recipeImageWeapon');
+        
+        if (recipeDetail.style.display === 'block' && recipeTitleElem.innerText === title) {
+            recipeDetail.style.display = 'none';
+        } else {
+            recipeTitleElem.innerText = title;
+            document.getElementById('recipeDescriptionWeapon').innerText = description;
+            
+            const ingredientsList = document.getElementById('recipeIngredientsWeapon');
+            ingredientsList.innerHTML = '';
+            ingredients.forEach(function(ingredient) {
+                var li = document.createElement('li');
+                li.innerText = ingredient;
+                ingredientsList.appendChild(li);
+            });
+            
+            recipeImageElem.src = imageUrl;
+            recipeDetail.style.display = 'block';
+        }
+    }
     </script>
 </body>
 </html>
